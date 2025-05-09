@@ -103,8 +103,7 @@ cd zyno-cursor
 pnpm install
 
 # Configuration de l'environnement
-cp .env.example .env
-# Éditer .env avec vos configurations
+# Créez un fichier .env à la racine du projet (voir section Configuration ci-dessous)
 
 # Démarrage des services
 sudo systemctl start redis-server
@@ -142,12 +141,60 @@ packages/
   ├── aeco/           # Moteur d'optimisation des réponses
   ├── rag/            # Système RAG
   ├── api/            # API Gateway
+  ├── types/          # Types partagés
   └── web/            # Interface utilisateur
+```
+
+## ⚙️ Configuration
+
+### Variables d'Environnement
+
+Créez un fichier `.env` à la racine du projet avec les variables suivantes :
+
+```env
+# Configuration de l'API
+PORT=3000
+NODE_ENV=development
+
+# Configuration de la base de données
+DATABASE_URL=postgresql://user:password@localhost:5432/zyno_db
+
+# Configuration de l'authentification
+JWT_SECRET=your_jwt_secret_key_here
+JWT_EXPIRATION=24h
+
+# Configuration des sessions
+SESSION_SECRET=your_session_secret_here
+SESSION_TTL=86400
+
+# Configuration des logs
+LOG_LEVEL=info
+LOG_FILE_PATH=logs/app.log
+
+# Configuration des limites de taux
+RATE_LIMIT_WINDOW=15m
+RATE_LIMIT_MAX=100
+
+# Configuration des clés API de test
+ADMIN_API_KEY=zyno_admin_2024_secure_key_123
+USER_API_KEY=zyno_user_2024_secure_key_456
+READONLY_API_KEY=zyno_readonly_2024_secure_key_789
+
+# Configuration du cache
+CACHE_TTL=3600
+CACHE_SIZE=1000
+
+# Configuration des notifications
+SMTP_HOST=smtp.example.com
+SMTP_PORT=587
+SMTP_USER=your_smtp_user
+SMTP_PASSWORD=your_smtp_password
+SMTP_FROM=noreply@zyno.com
 ```
 
 ## 📝 Licence
 
-Propriétaire - Tous droits réservés 
+Propriétaire - Tous droits réservés
 
 # Zyno Cursor
 
