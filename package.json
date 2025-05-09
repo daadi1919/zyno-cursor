@@ -1,0 +1,19 @@
+{
+  "name": "zyno",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=23.3.0",
+    "pnpm": ">=9.15.7"
+  },
+  "scripts": {
+    "dev": "pnpm -r dev",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "lint": "pnpm -r lint"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+} 

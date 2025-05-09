@@ -1,0 +1,32 @@
+{
+  "name": "@zyno/rag",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc",
+    "test": "vitest",
+    "lint": "eslint src --ext .ts"
+  },
+  "dependencies": {
+    "@llama-node/llama-cpp": "^0.1.20",
+    "@llama-node/core": "^0.1.20",
+    "langchain": "^0.1.0",
+    "chromadb": "^1.7.3",
+    "@types/node": "^20.11.0",
+    "pdf-parse": "^1.1.1",
+    "docx": "^8.5.0",
+    "mammoth": "^1.6.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.0",
+    "eslint": "^8.56.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "@types/pdf-parse": "^1.1.4",
+    "@types/mammoth": "^1.6.3"
+  }
+} 

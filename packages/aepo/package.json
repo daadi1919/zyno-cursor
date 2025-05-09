@@ -1,0 +1,38 @@
+{
+  "name": "@zyno/aepo",
+  "version": "1.0.0",
+  "description": "Service d'authentification et d'autorisation pour Zyno",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "format": "prettier --write \"src/**/*.ts\""
+  },
+  "dependencies": {
+    "@zyno/types": "workspace:*",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "neo4j-driver": "^5.15.0",
+    "zod": "^3.22.4",
+    "crypto": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/express-session": "^1.17.10",
+    "@types/jest": "^29.5.11",
+    "@types/node": "^20.10.5",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint": "^8.56.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.2.5",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.3.3"
+  }
+} 
