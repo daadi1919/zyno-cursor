@@ -33,11 +33,83 @@ Zyno est une plateforme conversationnelle intelligente basée sur ElizaOS, inté
 - Neo4j
 - Docker (optionnel)
 
-## 📦 Installation
+## 📦 Installation sur Debian 12
+
+### Prérequis système
 
 ```bash
+# Mise à jour du système
+sudo apt update && sudo apt upgrade -y
+
+# Installation des dépendances système
+sudo apt install -y \
+    curl \
+    git \
+    build-essential \
+    python3 \
+    python3-pip \
+    python3-venv \
+    nodejs \
+    npm \
+    redis-server \
+    postgresql \
+    postgresql-contrib \
+    libpq-dev \
+    libssl-dev \
+    pkg-config \
+    cmake \
+    gcc \
+    g++ \
+    make \
+    wget \
+    unzip
+
+# Installation de Node.js 23.3.0
+curl -fsSL https://deb.nodesource.com/setup_23.x | sudo -E bash -
+sudo apt install -y nodejs
+
+# Installation de pnpm
+curl -fsSL https://get.pnpm.io/install.sh | sh -
+source ~/.bashrc
+
+# Installation de Docker (optionnel)
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+sudo usermod -aG docker $USER
+
+# Installation de Neo4j
+wget -O - https://debian.neo4j.com/neotechnology.gpg.key | sudo apt-key add -
+echo 'deb https://debian.neo4j.com stable latest' | sudo tee /etc/apt/sources.list.d/neo4j.list
+sudo apt update
+sudo apt install neo4j
+
+# Installation de Python packages
+pip3 install --user virtualenv
+pip3 install --user numpy pandas scikit-learn torch transformers
+
+# Configuration de PostgreSQL
+sudo -u postgres createuser -s $USER
+createdb zyno
+```
+
+### Installation du projet
+
+```bash
+# Cloner le dépôt
+git clone https://github.com/daadi1919/zyno-cursor.git
+cd zyno-cursor
+
 # Installation des dépendances
 pnpm install
+
+# Configuration de l'environnement
+cp .env.example .env
+# Éditer .env avec vos configurations
+
+# Démarrage des services
+sudo systemctl start redis-server
+sudo systemctl start postgresql
+sudo systemctl start neo4j
 
 # Développement
 pnpm dev
@@ -47,6 +119,19 @@ pnpm build
 
 # Tests
 pnpm test
+```
+
+### Vérification de l'installation
+
+```bash
+# Vérifier les versions installées
+node --version  # Devrait afficher v23.3.0
+npm --version
+pnpm --version
+python3 --version
+pip3 --version
+docker --version
+neo4j --version
 ```
 
 ## 🏗️ Structure du Projet
